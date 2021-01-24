@@ -10,11 +10,21 @@ let color = [
     "#98A499",
   ],
   foldersList = document.querySelector(".folders__list"),
-  tasksList = document.querySelector(".tasks__list");
+  tasksList = document.querySelector(".tasks__list"),
+  foldersItem = document.querySelectorAll(".folders__list__item");
 
 const newFolder = document.querySelector(".folders__new-folder"),
   searchInput = document.querySelector(".search-input"),
   addInput = document.querySelector(".tasks__add-input");
+
+//FOLDERS
+//Active folder
+foldersList.addEventListener("click", function(event){
+  let currentFolder = event.target;
+  foldersItem.forEach(e => e.classList.remove("active-folder"));
+  currentFolder.classList.add("active-folder");
+  foldersItem = document.querySelectorAll(".folders__list__item");
+})
 
 //Create new folder with random marker
 newFolder.addEventListener("click", function () {
@@ -28,6 +38,8 @@ newFolder.addEventListener("click", function () {
   marker.style.background = color[Math.floor(Math.random() * color.length)];
 });
 
+
+//MAIN
 //Add item with hotkey
 addInput.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
@@ -43,3 +55,4 @@ function addItem(text) {
   taskItem.textContent = text;
   tasksList.append(taskItem);
 }
+
