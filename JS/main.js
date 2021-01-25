@@ -19,7 +19,7 @@ const newFolder = document.querySelector(".folders__new-folder"),
 
 //FOLDERS
 //Active folder
-foldersList.addEventListener("click", function(event){
+foldersList.addEventListener("click", function (event) {
   let currentFolder = event.target;
   foldersItem.forEach(e => e.classList.remove("active-folder"));
   currentFolder.classList.add("active-folder");
@@ -50,9 +50,16 @@ addInput.addEventListener("keydown", function (event) {
 
 //add new Item
 function addItem(text) {
-  let taskItem = document.createElement("li");
+  let taskItem = document.createElement("li"),
+    checkboxHidden = document.createElement("input"),
+    labelCheckbox = document.createElement("label");
+  checkboxHidden.setAttribute("type", "checkbox");
+  checkboxHidden.className = "checkbox-hidden";
+  checkboxHidden.setAttribute("name", "checkbox");
+  labelCheckbox.setAttribute("for", "checkbox");
   taskItem.className = "tasks__list__item";
-  taskItem.textContent = text;
+  taskItem.append(checkboxHidden);
+  taskItem.append(labelCheckbox);
+  taskItem.append(text);
   tasksList.append(taskItem);
 }
-

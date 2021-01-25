@@ -63,6 +63,8 @@ aside {
       height: 40px;
       padding-left: 40px;
       cursor: pointer; }
+      .folders__list__item:hover {
+        background: #293140; }
   .folders__new-folder {
     display: flex;
     height: 40px;
@@ -83,6 +85,41 @@ aside {
   background: #A4D837;
   border-radius: 10px;
   margin-right: 10px; }
+
+.checkbox-hidden {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer; }
+  .checkbox-hidden:checked + label::before {
+    border-color: #3757D8;
+    background-color: #3757D8;
+    background-image: url("../img/checkbox.svg"); }
+  .checkbox-hidden:not(:disabled):active + label::before {
+    background-color: #92ABCF;
+    border-color: #92ABCF; }
+  .checkbox-hidden:focus:not(:checked) + label::before {
+    border-color: #80bdff; }
+  .checkbox-hidden:disabled + label::before {
+    background-color: #e9ecef; }
+  .checkbox-hidden + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none; }
+    .checkbox-hidden + label::before {
+      content: '';
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #92ABCF;
+      border-radius: 15px;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%; }
 
 .tasks {
   display: flex;
