@@ -7,7 +7,11 @@
   padding: 0; }
 
 body {
+  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   display: grid;
+  gap: 5px;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: 60px auto;
   background: #0F1724;
@@ -55,7 +59,7 @@ aside {
   .folders__list {
     display: flex;
     flex-direction: column;
-    padding: 0px;
+    padding: 20px 0px 0px 0px;
     list-style-type: none; }
     .folders__list__item {
       display: flex;
@@ -65,6 +69,10 @@ aside {
       cursor: pointer; }
       .folders__list__item:hover {
         background: #293140; }
+      .folders__list__item__edit {
+        display: none;
+        margin-left: auto;
+        padding-right: 20px; }
   .folders__new-folder {
     display: flex;
     height: 40px;
@@ -73,7 +81,8 @@ aside {
     align-items: center; }
 
 .active-folder {
-  background: #293140; }
+  background: #293140;
+  color: white; }
 
 .title {
   display: flex;

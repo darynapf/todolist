@@ -10,7 +10,11 @@ $font-color:#92ABCF;
 }
 
 body {
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
     display: grid;
+    gap: 5px;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 60px auto;
     background: #0F1724;
@@ -70,7 +74,7 @@ aside {
     &__list {
         display: flex;
         flex-direction: column;
-        padding: 0px;
+        padding: 20px 0px 0px 0px;
         list-style-type: none;
 
         &__item {
@@ -82,6 +86,12 @@ aside {
 
             &:hover {
                 background: #293140;
+            }
+
+            &__edit {
+                display: none;
+                margin-left: auto;
+                padding-right: 20px;
             }
         }
     }
@@ -97,6 +107,7 @@ aside {
 
 .active-folder {
     background: #293140;
+    color: white;
 }
 
 .title {
@@ -126,6 +137,7 @@ aside {
         background-color: #3757D8;
         background-image: url("../img/checkbox.svg");
     }
+
     &:not(:disabled):active+label::before {
         background-color: #92ABCF;
         border-color: #92ABCF;
@@ -203,7 +215,6 @@ aside {
             cursor: pointer;
         }
     }
-
 }
 
 .settings {
