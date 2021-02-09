@@ -1,20 +1,20 @@
 "use strict";
 
 let color = [
-  "#3757D8",
-  "#D837B5",
-  "#37D851",
-  "#D8AB37",
-  "#D83754",
-  "#0B97FD",
-  "#98A499",
-  "#00B0FF",
-  "#E2B7A2",
-  "#0FC796",
-  "#D82C7B",
-  "#F4BE01",
-  "#FF7695",
-],
+    "#3757D8",
+    "#D837B5",
+    "#37D851",
+    "#D8AB37",
+    "#D83754",
+    "#0B97FD",
+    "#98A499",
+    "#00B0FF",
+    "#E2B7A2",
+    "#0FC796",
+    "#D82C7B",
+    "#F4BE01",
+    "#FF7695",
+  ],
   foldersList = document.querySelector(".folders__list"),
   tasksList = document.querySelector(".tasks__list"),
   foldersItem = document.querySelectorAll(".folders__list__item");
@@ -25,8 +25,8 @@ const newFolder = document.querySelector(".folders__new-folder"),
 
 //FOLDERS
 // Active folder
-function addActiveFolderListener () {
-  foldersItem.forEach(e => e.addEventListener("click", function(event){
+function addActiveFolderListener() {
+  foldersItem.forEach(e => e.addEventListener("click", function (event) {
     foldersItem.forEach(e => e.classList.remove("active-folder"));
     event.currentTarget.classList.add("active-folder");
   }))
@@ -55,8 +55,6 @@ newFolder.addEventListener("click", function () {
   addActiveFolderListener();
 });
 
-
-
 //hover action
 function hoverEditIcon() {
   document.querySelectorAll(".folders__list__item").forEach((e) =>
@@ -66,12 +64,13 @@ function hoverEditIcon() {
           ".folders__list__item__edit"
         ).style.display = "inline";
       }
-    })
-  );
-  document.querySelector(".folders__list__item").addEventListener("mouseout", function (event) {
-    event.currentTarget.querySelector(".folders__list__item__edit").style.display = "none";
-  });
-};
+    }));
+    document.querySelectorAll(".folders__list__item").forEach(e =>
+    e.addEventListener("mouseout", function (event) {
+      event.currentTarget.querySelector(".folders__list__item__edit").style.display = "none";
+    }));
+}
+
 hoverEditIcon()
 //Change name of folder
 function hoverAction() {
@@ -125,4 +124,4 @@ function addItem(text) {
   taskItem.append(labelCheckbox);
   taskItem.append(text);
   tasksList.append(taskItem);
-}
+};
