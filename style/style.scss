@@ -93,6 +93,22 @@ aside {
                 margin-left: auto;
                 padding-right: 20px;
             }
+
+            &__rename {
+                width: 170px;
+                background: none;
+                border: 1px solid #3757D8;
+                height: 40px;
+                padding-left: 10px;
+                color: #92ABCF;
+                border-radius: 10px;
+                &:focus {
+                    outline: none;
+                }
+                &:active {
+                    border: 1px solid #3757D8;
+                }
+            }
         }
     }
 
@@ -118,7 +134,7 @@ aside {
 .marker {
     height: 10px;
     width: 10px;
-    background: #A4D837;
+    background: #3757D8;
     border-radius: 10px;
     margin-right: 10px;
 }
