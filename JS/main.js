@@ -26,10 +26,12 @@ const newFolder = document.querySelector(".folders__new-folder"),
 //FOLDERS
 // Active folder
 function addActiveFolderListener() {
-  foldersItem.forEach(e => e.addEventListener("click", function (event) {
-    foldersItem.forEach(e => e.classList.remove("active-folder"));
-    event.currentTarget.classList.add("active-folder");
-  }))
+  foldersItem.forEach((e) =>
+    e.addEventListener("click", function (event) {
+      foldersItem.forEach((e) => e.classList.remove("active-folder"));
+      event.currentTarget.classList.add("active-folder");
+    })
+  );
 }
 
 //Create new folder with random marker
@@ -64,14 +66,18 @@ function hoverEditIcon() {
           ".folders__list__item__edit"
         ).style.display = "inline";
       }
-    }));
-    document.querySelectorAll(".folders__list__item").forEach(e =>
+    })
+  );
+  document.querySelectorAll(".folders__list__item").forEach((e) =>
     e.addEventListener("mouseout", function (event) {
-      event.currentTarget.querySelector(".folders__list__item__edit").style.display = "none";
-    }));
+      event.currentTarget.querySelector(
+        ".folders__list__item__edit"
+      ).style.display = "none";
+    })
+  );
 }
 
-hoverEditIcon()
+hoverEditIcon();
 //Change name of folder
 function hoverAction() {
   document.querySelectorAll(".folders__list__item__edit").forEach((e) =>
@@ -85,8 +91,10 @@ hoverAction();
 
 //come back folder defult style after hover
 function defult() {
-  document.querySelectorAll(".folders__list__item__rename").forEach(e => e.remove());
-  document.querySelectorAll("p").forEach(e => e.style.display = "inline");
+  document
+    .querySelectorAll(".folders__list__item__rename")
+    .forEach((e) => e.remove());
+  document.querySelectorAll("p").forEach((e) => (e.style.display = "inline"));
 }
 
 function changeName(event) {
@@ -97,8 +105,23 @@ function changeName(event) {
   inputRename.setAttribute("value", folderName.textContent);
   inputRename.className = "folders__list__item__rename";
   event.currentTarget.parentElement.querySelector(".marker").after(inputRename);
-  inputRename.style.borderColor = event.currentTarget.parentElement.querySelector(".marker").style.background;
+  inputRename.style.borderColor = event.currentTarget.parentElement.querySelector(
+    ".marker"
+  ).style.background;
   event.currentTarget.parentElement.classList.add("on-edit");
+  newNameFolder();
+}
+
+function newNameFolder() {
+  let currentNewName = document.querySelector(".folders__list__item__rename");
+  currentNewName.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+      let currentName = event.currentTarget.parentElement.querySelector("p")
+      currentName.style.display = "inline";
+      currentName.textContent = currentNewName.value;
+      currentNewName.style.display = "none";
+    }
+  });
 }
 
 //MAIN
@@ -124,4 +147,4 @@ function addItem(text) {
   taskItem.append(labelCheckbox);
   taskItem.append(text);
   tasksList.append(taskItem);
-};
+}
